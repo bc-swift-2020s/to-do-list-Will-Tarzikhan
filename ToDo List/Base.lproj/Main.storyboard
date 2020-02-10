@@ -43,6 +43,11 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="hKD-kK-fSr">
+                        <barButtonItem key="leftBarButtonItem" title="Edit" id="BYv-4w-z1P">
+                            <connections>
+                                <action selector="editButtonPressed:" destination="BYZ-38-t0r" id="DTu-5A-qtw"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="IBV-zU-FrG">
                             <connections>
                                 <segue destination="37H-CD-zUA" kind="presentation" identifier="AddDetail" id="MD9-dP-eO5"/>
@@ -50,6 +55,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="addBarButton" destination="IBV-zU-FrG" id="Ppk-lJ-uk6"/>
                         <outlet property="tableView" destination="oFx-31-kNk" id="Umx-jR-vmQ"/>
                     </connections>
                 </viewController>
@@ -62,7 +68,7 @@
             <objects>
                 <tableViewController id="s3A-Yv-krC" customClass="ToDoDetailTableViewController" customModule="ToDo_List" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="9Mr-WB-onI">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <sections>
@@ -196,6 +202,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="uVX-Q9-H1B"/>
+        <segue reference="GgX-AY-k0o"/>
     </inferredMetricsTieBreakers>
 </document>
