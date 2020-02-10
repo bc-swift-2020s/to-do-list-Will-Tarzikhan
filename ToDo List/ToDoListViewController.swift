@@ -24,7 +24,11 @@ class ToDoListViewController: UIViewController {
         if segue.identifier == "ShowDetail" {
             let destination = segue.destination as! ToDoDetailTableViewController
             let selectedIndexPath = tableView.indexPathForSelectedRow!
-            destination.toDoItem - toDoArray[selectedIndexPath.row]
+            destination.toDoItem = toDoArray[selectedIndexPath.row]
+        } else {
+            if let selectedIndexPath = tableView.indexPathForSelectedRow {
+                tableView.deselectRow(at: selectedIndexPath, animated: true)
+            }
         }
     }
     
@@ -32,7 +36,12 @@ class ToDoListViewController: UIViewController {
         let source = segue.source as! ToDoDetailTableViewController
         if let selectedIndexPath = tableView.indexPathForSelectedRow {
             toDoArray[selectedIndexPath.row] = source.toDoItem
-            tableView.reloadrows(at: [selectedIndexPath], with: .automatic)
+            tableView.reloadRows(at: [selectedIndexPath], with: .automatic)
+        } else {
+            let newIndexPath = IndexPath(row: toDoArray.count, section: 0)
+            toDoArray.append(source.toDoItem)
+            tableView.insertRows(at: [newIndexPath], with: .bottom)
+            tableView.scrollToRow(at: newIndexPath, at: .bottom, animated: true)
         }
     }
 }

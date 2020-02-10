@@ -18,6 +18,10 @@ class ToDoDetailTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if toDoItem == nil {
+            toDoItem = ""
+        }
         nameField.text = toDoItem
     }
     
